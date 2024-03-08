@@ -50,16 +50,16 @@ public class App {
         }
 
         BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(containerName);
-        AppendBlobClient appendBlob = containerClient.getBlobClient("abcd.txt").getAppendBlobClient();
+        AppendBlobClient appendBlob = containerClient.getBlobClient("abcd1.txt").getAppendBlobClient();
 
-        //appendBlob.create(true);
+        // appendBlob.create(true);
         // java.util.Random random = new java.util.Random();
         // File tempFile1 = DataGenerator.createTempLocalFile("appendblob-", ".tmp",
         // (128 * 1024) + random.nextInt(128 * 1024));
 
         // appendBlob.getBlobOutputStream().write("asdfdsaf".getBytes());
 
-        String wd = "test12321";
+        String wd = "\n" + "test" + Math.random();
         //
         // AppendBlobClient appendBlobOrig = containerClient.getBlobClient("Article
         // 1.txt").getAppendBlobClient();
