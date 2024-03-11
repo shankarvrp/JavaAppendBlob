@@ -1,0 +1,28 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}",
+            "env": {
+                "TENANT_ID": "c8b2d4e3-11ad-4168-a26d-ea01b8b4e896",
+                "CLIENT_ID": "3588cbbd-cf28-40dc-8dfe-6daeaa51f560",
+                "CLIENT_SECRET": "<TBD>",
+                "KEY_VAULT": "https://sanaraya-kv.vault.azure.net",
+                "KEY_VAULT_SECRET_NAME": "SASKey"
+            }
+        },
+        {
+            "type": "java",
+            "name": "App",
+            "request": "launch",
+            "mainClass": "com.blobs.quickstart.App",
+            "projectName": "blob-quickstart"
+        }
+    ]
+}
