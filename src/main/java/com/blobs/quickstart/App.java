@@ -26,12 +26,21 @@ public class App {
         String KEY_VAULT = System.getenv("KEY_VAULT");
         String KEY_VAULT_SECRET_NAME = System.getenv("KEY_VAULT_SECRET_NAME");
 
+        String STORAGE_ACC_ENDPOINT = System.getenv("STORAGE_ACC_ENDPOINT");
+        String CONTAINER_NAME = System.getenv("CONTAINER_NAME");
+        String BLOB_NAME = System.getenv("BLOB_NAME");
+
         System.err.println("---------- Config Values ----------------");
         System.err.println("TENANT_ID :: " + TENANT_ID);
         System.err.println("CLIENT_ID :: " + CLIENT_ID);
         System.err.println("CLIENT_SECRET :: " + CLIENT_SECRET);
         System.err.println("KEY_VAULT :: " + KEY_VAULT);
         System.err.println("KEY_VAULT_SECRET_NAME :: " + KEY_VAULT_SECRET_NAME);
+
+        System.err.println("STORAGE_ACC_ENDPOINT :: " + STORAGE_ACC_ENDPOINT);
+        System.err.println("CONTAINER_NAME :: " + CONTAINER_NAME);
+        System.err.println("BLOB_NAME :: " + BLOB_NAME);
+        System.err.println("---------- Config Values ----------------");
 
         /**
          * Get secret from KeyVault to access Storage account
@@ -57,14 +66,13 @@ public class App {
 
         // Azure SDK client builders accept the credential as a parameter
         BlobServiceClient blobServiceClient = new BlobServiceClientBuilder()
-                .endpoint("https://sanarayashellstorageacc.blob.core.windows.net/")
+                .endpoint(STORAGE_ACC_ENDPOINT)
                 .sasToken(retrievedSecret.getValue())
                 .buildClient();
 
         // Get the container and append to an existing blob
-        String containerName = "articles";
-        BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(containerName);
-        AppendBlobClient appendBlob = containerClient.getBlobClient("abcd1.txt").getAppendBlobClient();
+        BlobContainerClient containerClient = blobServiceClient.getBlobContainerClient(CONTAINER_NAME);
+        AppendBlobClient appendBlob = containerClient.getBlobClient(BLOB_NAME).getAppendBlobClient();
 
         // Append some dummy data
         String wd = "\n" + "Entry" + System.currentTimeMillis();

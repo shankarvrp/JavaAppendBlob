@@ -14,7 +14,10 @@
                 "CLIENT_ID": "3588cbbd-cf28-40dc-8dfe-6daeaa51f560",
                 "CLIENT_SECRET": "<TBD>",
                 "KEY_VAULT": "https://sanaraya-kv.vault.azure.net",
-                "KEY_VAULT_SECRET_NAME": "SASKey"
+                "KEY_VAULT_SECRET_NAME": "SASKey",
+                "STORAGE_ACC_ENDPOINT": "https://sanarayashellstorageacc.blob.core.windows.net",
+                "CONTAINER_NAME": "articles",
+                "BLOB_NAME": "acbd1.txt"
             }
         },
         {
